@@ -1,0 +1,94 @@
+SEED:
+  random_seed: 42
+
+DATALOADER:
+  num_workers: 0
+
+DEBUG:
+  debug: False
+
+PREPROCESSING:
+  img_size: 512
+  max_len: 275
+  print_freq: 1000
+  encoder_type: 'efficientnet-b0'
+  decoder_type: 'Unet'
+  size: 512
+  freeze_epo: 0
+  warmup_epo: 1
+  cosine_epo: 19
+  warmup_factor: 10
+  scheduler: 'GradualWarmupSchedulerV2'
+  factor: 0.2
+  patience: 4
+  eps: 1e-6
+  T_max: 4
+  T_0: 4
+  encoder_lr: 0.00003
+  min_lr: 0.000001
+  batch_size: 16
+  weight_decay: 0.000001
+  gradient_accumulation_steps: 1
+  max_grad_norm: 5
+  dropout: 0.5
+  n_fold: 2
+  trn_fold: [0, 1]
+  preprocessing: True
+  apex: False
+  load_state: False
+  npixel_threshold: 20000
+  npixel_for_iou: 2000
+  iou_threshold : 0.80
+
+
+TRAIN:
+  img_size: 512
+  max_len: 275
+  print_freq: 100
+  encoder_type: 'timm-efficientnet-b2'
+  decoder_type: 'UnetPlusPlus'
+  size: 512
+  freeze_epo: 0
+  warmup_epo: 1
+  cosine_epo: 19
+  warmup_factor: 10
+  scheduler: 'GradualWarmupSchedulerV2'
+  factor: 0.2
+  patience: 4
+  eps: 1e-6
+  T_max: 4
+  T_0: 4
+  encoder_lr: 0.00003
+  min_lr: 0.000001
+  batch_size: 32
+  weight_decay: 0.000001
+  gradient_accumulation_steps: 1
+  max_grad_norm: 5
+  dropout: 0.5
+  n_fold: 1
+  trn_fold: [0]
+  train: True
+  apex: True
+  load_state: False
+  self_cutmix: True
+  cutmix_threshold: 0.1
+  coloring: True
+  coloring_threshold: 0.1
+  loss_smooth_factor: 0.01
+  pretrained : True
+  prospective_filtering : False
+  augmentation : True
+  break_epoch: 14
+
+INFERENCE:
+  epoch_list: [13, 11, 12]
+  mask_threshold: 14000
+  epsilon: 0.555
+  polygon_approx_threshold: 50
+
+LOG:
+  log_day: '0630'
+  version: 'v1-1'
+  light: 'light'
+  data_type: 'hair'
+  comment: 'final'
