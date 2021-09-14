@@ -1,4 +1,46 @@
-# Project
+# :haircut: 한국인 헤어 세그멘테이션 경진대회 2등 솔루션
+
+# Contents
+
+#### Solution Description
+
+#### Command Line Interface
+
+- **Preprocess**
+- **Train**
+- **Predict**
+
+
+
+# Solution Description
+
+## Subject
+
+본 대회의 주제는 한국인 헤어에 대해서 세그멘테이션을 수행하는 AI 모델 개발입니다. 주어진 이미지는 아래의 그림과 같이 다양한 헤어스타일에 대해서 세그멘테이션을 수행해야 할 필요가 있었습니다. 
+
+
+
+![task](./Image/task.png)
+
+## Data
+
+- 학습 데이터: 약 20만장의 512x512 헤어스타일 이미지
+- 경진대회의 데이터의 경우 저작권의 문제때매, 예시 이미지의 경우 AI Hub에서 제공하는 한국인 헤어스타일 데이터셋의 예시를 사용했습니다.  
+- 이미지 데이터 : https://aihub.or.kr/aidata/30752
+
+
+
+## Summary
+
+![summary](./Image/summary.png)
+
+## Score
+
+![image-20210914131303674](./Image/score.png)
+
+
+
+## Code Structure
 
 ```bash
 ├── DATA
@@ -30,52 +72,30 @@
 ├── predict.py
 └── train.py
 ```
-## config
-모델 학습을 위한 설정
-## data
-task02_train : train data <br>
-task02_test : test data  <br>
-data.csv : 원본 데이터를 전처리한 데이터 csv <br>
-polygon_iou.json : 전처리한 데이터의 iou 값 파일
-## model
-submission_model_weight : 제출용 model weight 파일 <br>
-preprocessing_model_weight : 전처리를 위한 model weight 파일 <br>
-## modules
-#### dataset.py
-dataset
-#### transform.py
-augmentation
-#### utils.py
-yaml 파일 로드 <br>
-logger <br>
-seed 설정 <br>
-#### preprocessing.py
-데이터셋 전처리
-#### models.py
-Encoder, Decoder
-#### scheduler.py
-scheduler
-#### solver.py
-전처리와 학습에 필요한 함수
-## output
-log : train log <br>
-runs : 학습 결과 model weight <br>
-result.json : predict 결과 파일 <br>
 
-<br>
+# Command Line Interface
 
-## Code 실행방법
 
-### 1. preprocess.py 실행
+
+## Preprocess
+
 ```console
 python preprocess.py
 ```
-### 2. train.py 실행
+
+
+
+## Train
+
 ```console
 python train.py
 ```
 
-### 3. predict.py 실행
+
+
+## Predict 
+
 ```console
 python predict.py
 ```
+
